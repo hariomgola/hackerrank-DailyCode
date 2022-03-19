@@ -1,0 +1,24 @@
+{
+  "name": "hackerrank-dailycode",
+  "version": "1.0.0",
+  "description": "HackerRankCode Algo",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hariomgola/hackerrank-DailyCode.git"
+  },
+  "author": "hariom.kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hariomgola/hackerrank-DailyCode/issues"
+  },
+  "homepage": "https://github.com/hariomgola/hackerrank-DailyCode#readme",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
