@@ -7,33 +7,28 @@ const climbingLeaderboard = (ranked, player) => {
   console.log("Inputs ranked -> ", ranked);
   console.log("Player ranked -> ", player);
   // Write your code here
-  let _tempCounter = 0;
-  let final2DRanked = [];
-  for (let i = 0; i < ranked.length; i++) {
-    if (ranked[i] == ranked[i - 1]) {
-      _tempCounter--;
+  let _ranked = []
+  for(let i=0;i<ranked.length;i++){
+    if(ranked[i] != ranked[i-1]){
+      _ranked.push(ranked[i])
     }
-    final2DRanked.push([++_tempCounter, ranked[i]]);
   }
-  console.log("Data storing the Dense Ranking |>", final2DRanked);
-  // Above code is not required
-  // tried above code by using 2D array
-
-  // code to remove dublicate element from array
-  //   ranked = ranked.filter((item,index)=> ranked.indexOf(item) == index)
+  ranked = _ranked
   // code finish to remove dublicate element from array
 
   // checking and storing data accorsing to the player
   let finalRanking = [];
   for (let i = 0; i < player.length; i++) {
-    let _player = player[i];
-    let tempranking = 1;
-    for (let j = 0; j < ranked.length; j++) {
-      if (_player <= ranked[j]) {
-        tempranking = j;
+    let tempScore = 0;
+    for (let j = ranked.length - 1; j >= 0; j--) {
+      if (player[i] >= ranked[j] && tempScore != ranked[j]) {
+        tempScore = j + 1;
       }
     }
-    finalRanking.push(tempranking);
+    finalRanking.push(tempScore);
+  }
+  if(finalRanking[0] == 0){
+    finalRanking[0] = ranked.length +1 
   }
   return finalRanking;
 };
